@@ -1,0 +1,102 @@
+@font-face{
+    font-family: 'Questrian';
+    src: url(/fonts/Questrian-3VB3.ttf);
+}
+
+@font-face{
+    font-family: 'Garnett Light Regular';
+    src: url(/fonts/Garnett/TTF/Garnett/Light.ttf) format('truetype');
+}
+
+@font-face{
+    font-family: 'RoslindaleDisplayCondensed-Light';
+    src: url(/fonts/Roslindale/RoslindaleDisplayCondensed-Light.otf);
+}
+
+@font-face{
+    font-family: 'SpaceMono-Regular';
+    src: url(/fonts/SpaceMono/SpaceMono-Regular.ttf);
+}
+
+body{
+    /* background-color:rgb(253, 247, 193); */
+    padding: 0 2.5% 0 2.5%;
+    font-size: 15vw;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: .5fr 4fr 4fr 1fr ;
+    grid-template-areas: 
+    "nav nav nav"
+    "heading heading heading"
+    "proj_thumb proj_thumb proj_thumb"
+    "footer footer footer"
+    ;
+}
+
+.heading{
+    grid-area: heading;
+    
+}
+
+.landing_text{
+    grid-area: landing_text;
+    font-family: 'RoslindaleDisplayCondensed-Light', serif;
+    font-size: 20vh;
+    padding-top: .5em;
+}
+
+.landing_bodytext{
+    font-family: 'Garnett Light Regular', sans-serif;
+    font-size: 5vh;
+}
+
+.navigation{
+    grid-area: nav;
+    font-family: 'SpaceMono-Regular', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 5vh;
+    flex-wrap: wrap;
+    /* margin-left: 1em; */
+}
+
+.navigation > div{
+    font-size: 1.5rem;
+}
+
+.navigation > ul{ 
+    list-style: none;
+    margin: 0;
+    padding-top: 1.5rem;
+    height: 3em;
+
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 5vh;
+    flex-wrap: wrap;
+}
+
+ul li{
+    /* padding-right: 2em; */
+    font-size: 1rem;
+}
+
+ul li:before{
+    content:"•";
+    font-size: 1rem;
+}
+
+.project_thumb{
+    display: grid;
+    grid-area: proj_thumb;
+}
+
+.project_thumb > subtitle{
+    font-size: .2rem;
+}
