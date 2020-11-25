@@ -4,18 +4,33 @@
 }
 
 @font-face{
-    font-family: 'Garnett Light Regular';
-    src: url(/fonts/Garnett/TTF/Garnett/Light.ttf) format('truetype');
-}
-
-@font-face{
     font-family: 'RoslindaleDisplayCondensed-Light';
     src: url(/fonts/Roslindale/RoslindaleDisplayCondensed-Light.otf);
 }
 
 @font-face{
     font-family: 'SpaceMono-Regular';
-    src: url(/fonts/SpaceMono/SpaceMono-Regular.ttf);
+    src: url(/fonts/Space/SpaceMono-Regular.ttf);
+}
+
+@font-face{
+    font-family: 'SpaceMono-RegularItalic';
+    src: url(/fonts/Space/SpaceMono-RegularItalic.ttf);
+}
+
+@font-face{
+    font-family: 'SpaceGroteskLight';
+    src: url(/fonts/Space/static/SpaceGrotesk-Light.ttf);
+}
+
+@font-face{
+    font-family: 'SpaceGroteskRegular';
+    src: url(/fonts/Space/static/SpaceGrotesk-Regular.ttf);
+}
+
+@font-face{
+    font-family: 'SpaceGroteskBold';
+    src: url(/fonts/Space/static/SpaceGrotesk-Bold.ttf);
 }
 
 body{
@@ -24,16 +39,17 @@ body{
     font-size: 15vw;
 }
 
-.container{
+/* LANDING AREA */
+
+.landing_container{
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: .5fr 4fr 4fr 1fr ;
+    grid-template-rows: 1fr 4fr  ;
     grid-template-areas: 
     "nav nav nav"
     "heading heading heading"
-    "proj_thumb proj_thumb proj_thumb"
-    "footer footer footer"
     ;
+    margin-bottom: 1rem;
 }
 
 .heading{
@@ -41,18 +57,7 @@ body{
     
 }
 
-.landing_text{
-    grid-area: landing_text;
-    font-family: 'RoslindaleDisplayCondensed-Light', serif;
-    font-size: 20vh;
-    padding-top: .5em;
-}
-
-.landing_bodytext{
-    font-family: 'SpaceMono-Regular', sans-serif;
-    font-size: 5vh;
-}
-
+/* the heading area */
 .navigation{
     grid-area: nav;
     font-family: 'SpaceMono-Regular', sans-serif;
@@ -65,10 +70,13 @@ body{
     /* margin-left: 1em; */
 }
 
+/* logo */
 .navigation > div{
-    font-size: 1.5rem;
+    font-size: 1em;
+    font-family: 'SpaceMono-RegularItalic', sans-serif;
 }
 
+/* menu on the right */
 .navigation > ul{ 
     list-style: none;
     margin: 0;
@@ -77,26 +85,110 @@ body{
 
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
-    font-size: 5vh;
     flex-wrap: wrap;
+    align-items: center;
+
+    /* font-size: 2rem;     */
 }
 
 ul li{
-    /* padding-right: 2em; */
-    font-size: 1rem;
+    padding-right: 2em;
+    font-size: 1.5rem;
+    border-radius: 1em;
 }
 
 ul li:before{
     content:"•";
     font-size: 1rem;
+    margin-right: .7rem;
 }
 
-.project_thumb{
+li > a:visited{
+    color: black;
+}
+
+
+/* the Hello! text */
+.landing_text{
+    grid-area: landing_text;
+    font-family: 'RoslindaleDisplayCondensed-Light', serif;
+    font-size: 11rem;
+    padding-top: .5em;
+}
+
+/* the text below the Hello! */
+.landing_bodytext{
+    font-family: 'SpaceGroteskLight', sans-serif;
+    /* font-weight: 100; */
+    font-size: 2.7rem;
+    letter-spacing: -.099rem;
+}
+
+
+
+/* THUMBNAILS AREA */
+
+.thumbnails_container{
     display: grid;
-    grid-area: proj_thumb;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    ""
+    ;
+    grid-gap: 1rem;
+    
 }
 
-.project_thumb > subtitle{
-    font-size: .2rem;
+.thumbnails_container {
+    font-size: 1rem;
+}
+
+.thumbnails_container a{
+    text-decoration: none;
+    color: white;
+}
+
+.proj_thumb_sub, .proj_thumb_read_cta, .blog_thumb_sub, .blog_thumb_read_cta, .see_all_projects, .see_all_blog{
+    font-family: 'SpaceGroteskRegular', sans-serif;
+}
+
+.proj_thumb_sub, .blog_thumb_sub{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.proj_thumb_read_cta, .blog_thumb_read_cta{
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+/* .proj_thumb_tags, .blog_thumb_tags{
+    font-family: 'SpaceMono-Regular', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-size: 1rem;
+}
+
+.proj_thumb_tags{
+    grid-area: "proj_thumb_tags";
+} */
+
+.proj_thumb_title, .blog_thumb_title{
+    font-family: 'RoslindaleDisplayCondensed-Light', serif;
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.proj_thumb_text{
+    grid-area: 'proj_thumb_text';
+    background-color: black;
+    color: white; 
+    padding: 2rem;
+}
+
+.blog_thumb_text{
+    grid-area: 'blog_thumb_text';
+    background-color: black;
+    color: white;
+    padding: 2rem;
 }
