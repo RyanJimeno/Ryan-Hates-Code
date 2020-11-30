@@ -41,7 +41,7 @@ body{
     /* background-color:rgb(253, 247, 193); */
     padding: 0% 2.5% 2% 2.5%;
     font-size: 15vw;
-    background: linear-gradient(45deg, #52a3ff, #49ad46);
+    /* background: linear-gradient(45deg, #52a3ff, #49ad46); */
 }
 
 /* LANDING AREA */
@@ -104,12 +104,6 @@ body{
     /* font-size: 2rem;     */
 }
 
-ul li{
-    
-}
-
-
-
 /* the anchor tag - hyperlink */
 .nav_buttons > li > a{
     padding: 1vh 3vh;
@@ -136,6 +130,8 @@ ul li{
     box-shadow: 10px 10px black;
 }
 
+/* menu pseudo-states */
+
 .nav_buttons > li > a:hover{
     /* background-color: black;
     color: white; */
@@ -152,29 +148,33 @@ ul li{
 }
 
 
-/* for the testing class of the menu hyperlink */
-/* .nav_buttons > .test > a{
-    border-radius: 3rem;
-    border: 2px solid;
-    text-decoration: none;
-    
-} */
-
 /* --------------------------------------------------------- */
 /* the Hello! text */
 .landing_text{
     grid-area: landing_text;
     font-family: 'RoslindaleDisplayCondensed-Light', serif;
-    font-size: 11rem;
-    padding-top: .5em;
+    font-size: 12rem;
+
+    margin-top: 2rem;
+
+    display:flex;/*CSS3*/
+    align-items:center;/*Vertical align*/
+    justify-content:center;/*horizontal align*/
+    text-align: center;
 }
 
 /* the text below the Hello! */
 .landing_bodytext{
-    font-family: 'SpaceGroteskLight', sans-serif;
+    font-family: 'RoslindaleDisplayCondensed-Light', serif;
     /* font-weight: 100; */
-    font-size: 2.7rem;
-    letter-spacing: -.099rem;
+    font-size: 5rem;
+    /* letter-spacing: -.099rem; */
+    margin-bottom: 1rem;
+
+    display:flex;/*CSS3*/
+    align-items:center;/*Vertical align*/
+    justify-content:center;/*horizontal align*/
+    text-align: center;
 }
 
 
@@ -238,7 +238,7 @@ figure{
 }
 
 .proj_thumb_sub, .blog_thumb_sub{
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: 2rem;
 }
 
@@ -288,13 +288,17 @@ figure{
 
 .see_all_projects, .see_all_blog {
     font-size: 2.75rem;
-    text-align: center;
-    vertical-align: middle;
+    /* text-align: center;
+    vertical-align: middle; */
     color: black;
     
     border: 2px solid black;
 
     box-shadow: 7px 7px black;
+
+    display:flex;/*CSS3*/
+    align-items:center;/*Vertical align*/
+    justify-content:center;/*horizontal align*/
 }
 
 .see_all_projects:hover, .see_all_blog:hover{
