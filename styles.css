@@ -33,15 +33,18 @@
     src: url(/fonts/Space/static/SpaceGrotesk-Bold.ttf);
 }
 
-html{
+/* html element + variables */
+:root{
     box-sizing: border-box;
+    --main-bg-color: rgb(255, 253, 156);
+    /* --main-bg-color: linear-gradient(45deg, #52a3ff, #49ad46); */
 }
 
 body{
-    /* background-color:rgb(253, 247, 193); */
     padding: 0% 2.5% 2% 2.5%;
     font-size: 15vw;
-    /* background: linear-gradient(45deg, #52a3ff, #49ad46); */
+    background-color: var(--main-bg-color);
+    
 }
 
 /* LANDING AREA */
@@ -59,10 +62,10 @@ body{
 
 .heading{
     grid-area: heading;
-    
+    margin: 2rem;
 }
 
-/* the heading area */
+/* the logo+menu items area */
 .navigation{
     grid-area: nav;
     font-family: 'SpaceMono-Regular', sans-serif;
@@ -71,6 +74,10 @@ body{
     justify-content: space-between;
     align-items: center;
     font-size: 5vh;
+    position:-webkit-sticky; 
+    position:sticky; 
+    top:0;
+    background-color: var(--main-bg-color);
 }
 
 /* logo */
@@ -91,8 +98,9 @@ body{
 /* menu on the right */
 .nav_buttons{ 
     list-style: none;
-    margin: 0;
-    padding: 2rem;
+    /* margin: 0;
+    padding: 2rem; */
+    
     /* padding-top: 1rem;
     padding-right: 1.5rem; */
     height: em;
@@ -100,8 +108,13 @@ body{
     /* border: 2px solid black; */
 
     display: flex;
-
+    flex-wrap: wrap;
     /* font-size: 2rem;     */
+    margin: 2rem;
+}
+
+.nav_buttons > li{
+    margin: 0rem 0 2rem 0;
 }
 
 /* the anchor tag - hyperlink */
@@ -128,6 +141,7 @@ body{
     align-items: center;
 
     box-shadow: 10px 10px black;
+    padding-bottom: ;
 }
 
 /* menu pseudo-states */
@@ -145,7 +159,22 @@ body{
 .nav_buttons > li > a:active{
     color: black;
     box-shadow: 0px 0px black;
+    font-size: 1.70rem;
 }
+
+/* media queries for the menu */
+
+/* @media (max-width: 1101px) {
+    .navigation{
+        padding-bottom: 5rem;
+    }
+
+    .nav_buttons > li {
+        padding: 1rem 0;
+        font-size: 5vw;
+    }
+
+} */
 
 
 /* --------------------------------------------------------- */
@@ -182,22 +211,21 @@ body{
 /* THUMBNAILS AREA */
 
 .thumbnails_container{
-    margin: 5rem 0rem 2rem;
+    margin: 0rem 0rem 2rem;
+    /* padding: 0 6rem 0 6rem; */
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr .25fr 1fr 1fr .25fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .5fr .5fr .25fr;
     grid-template-areas: 
-    "projpiccont proj_thumb_text proj_thumb_text"
-    "projpiccont proj_thumb_text proj_thumb_text"
-    "see_all_projects see_all_projects see_all_projects"
-    "blogpiccont blog_thumb_text blog_thumb_text"
-    "blogpiccont blog_thumb_text blog_thumb_text"
-    "see_all_blog see_all_blog see_all_blog"
+    "projpiccont blogpiccont "
+    "proj_thumb_text blog_thumb_text "
+    "see_all_projects see_all_blog "
     ;
-    grid-gap: 1rem;
-    font-size: 1rem;
-    
+    grid-gap: .5rem;
+    /* font-size: 1rem; */
+
+    /* height: 99vh; */
 }
 
 .thumbnails_container a{
@@ -224,29 +252,26 @@ body{
 
 figure{
     margin: 0;
+    /* width: clamp(25% 75% 90%); */
+    background-color: black;
 }
 
 .project_thumb_picture, .blog_thumb_picture{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: scale-down;
     display: block; 
 }
 
-.proj_thumb_sub, .proj_thumb_read_cta, .blog_thumb_sub, .blog_thumb_read_cta, .see_all_projects, .see_all_blog{
+.proj_thumb_read_cta, .blog_thumb_read_cta, .see_all_projects, .see_all_blog{
     font-family: 'SpaceGroteskRegular', sans-serif;
 }
 
 .proj_thumb_sub, .blog_thumb_sub{
-    font-size: 1.75rem;
+    font-size: 2rem;
+    font-family: 'RoslindaleDisplayCondensed-Light', serif;
     margin-bottom: 2rem;
 }
-
-.proj_thumb_read_cta, .blog_thumb_read_cta{
-    font-size: 2rem;
-    padding-bottom: 2rem;
-}
-
 
 /* .proj_thumb_tags, .blog_thumb_tags{
     font-family: 'SpaceMono-Regular', sans-serif;
@@ -261,7 +286,7 @@ figure{
 
 .proj_thumb_title, .blog_thumb_title{
     font-family: 'RoslindaleDisplayCondensed-Light', serif;
-    font-size: 5rem;
+    font-size: clamp(1rem, 700%, 5rem);
     margin-bottom: 3rem;
 }
 
@@ -270,6 +295,12 @@ figure{
     /* background-color: black; */
     padding: 2rem;
     border: 2px solid black;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
 }
 
 .blog_thumb_text{
@@ -277,6 +308,19 @@ figure{
     padding: 2rem;
     border: 2px solid black;
 }
+
+.proj_thumb_read_cta, .blog_thumb_read_cta{
+    font-size: 2rem;
+    
+    display: flex;
+    align-items:center;/*Vertical align*/
+    justify-content:center;/*horizontal align*/
+    border: 2px solid black;
+    border-radius: 60px;
+    text-align: center;
+    align-self: flex-end;
+}
+
 
 .see_all_projects {
     grid-area: see_all_projects;
@@ -287,14 +331,17 @@ figure{
 }
 
 .see_all_projects, .see_all_blog {
-    font-size: 2.75rem;
-    /* text-align: center;
-    vertical-align: middle; */
+    font-size: 1.75rem;
+    text-align: center;
+    /* vertical-align: middle; */
     color: black;
     
     border: 2px solid black;
 
-    box-shadow: 7px 7px black;
+    box-shadow: 3px 3px black;
+
+    padding: 3rem;
+    margin-bottom: 4rem;
 
     display:flex;/*CSS3*/
     align-items:center;/*Vertical align*/
@@ -302,11 +349,14 @@ figure{
 }
 
 .see_all_projects:hover, .see_all_blog:hover{
-    box-shadow: 3px 3px black;
+    background-color: black;
+    color: white;
+    box-shadow: 0 0;
 }
 
 .see_all_projects:active, .see_all_blog:active{
     box-shadow: 0px 0px black;
+    font-size: 1.45rem;
 }
 
 /* ---------------- */
@@ -318,7 +368,7 @@ footer{
 }
 
 .footer_container{
-    font-family: 'RoslindaleDisplayCondensed-Light', serif;
+    font-family: 'SpaceGroteskRegular', serif;
     font-size: 2rem;
     text-align: center;
 }
