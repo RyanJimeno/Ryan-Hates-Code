@@ -53,7 +53,7 @@ body{
 .landing_container{
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: .5fr 2fr  ;
+    grid-template-rows: .5fr 2fr;
     grid-template-areas: 
     "nav nav nav"
     "heading heading heading"
@@ -63,7 +63,6 @@ body{
 
 .heading{
     grid-area: heading;
-    margin: 1rem;
 }
 
 /* the logo+menu items area */
@@ -96,29 +95,22 @@ body{
     color: black;
 }
 
-/* menu on the right */
+/* unordered list - menu on the right as one rectangular whole - just uncomment border prop to see what i mean */
 .nav_buttons{ 
     list-style: none;
-    /* margin: 0;
-    padding: 2rem; */
-    
-    /* padding-top: 1rem;
-    padding-right: 1.5rem; */
-    height: em;
-
     /* border: 2px solid black; */
 
     display: flex;
     flex-wrap: wrap;
-    /* font-size: 2rem;     */
     margin: 2rem;
 }
 
+/* for bottom spacing when the menu items wrap (as viewport shrinks) */
 .nav_buttons > li{
-    margin: 0rem 0 2rem 0;
+    margin-bottom: 2rem;
 }
 
-/* the anchor tag - hyperlink */
+/* the anchor tag - hyperlink - menu items as individual */
 .nav_buttons > li > a{
     padding: .75vh 3.5vh;
     margin-right: 1rem;
@@ -160,21 +152,6 @@ body{
     font-size: 1.10rem;
 }
 
-/* media queries for the menu */
-
-/* @media (max-width: 1101px) {
-    .navigation{
-        padding-bottom: 5rem;
-    }
-
-    .nav_buttons > li {
-        padding: 1rem 0;
-        font-size: 5vw;
-    }
-
-} */
-
-
 /* --------------------------------------------------------- */
 /* the Hello! text */
 .landing_text{
@@ -194,7 +171,7 @@ body{
 .landing_bodytext{
     font-family: 'RoslindaleDisplayCondensed-Light', serif;
     /* font-weight: 100; */
-    font-size: 5rem;
+    font-size: 4rem;
     /* letter-spacing: -.099rem; */
     margin-bottom: 1rem;
 
@@ -214,7 +191,7 @@ body{
 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: .5fr .5fr .25fr;
+    grid-template-rows: 50rem .5fr 7rem;
     grid-template-areas: 
     "projpiccont blogpiccont "
     "proj_thumb_text blog_thumb_text "
@@ -344,7 +321,7 @@ figure{
 
 .see_all_projects, .see_all_blog {
     font-size: 1.75rem;
-    text-align: center;
+    text-align: right;
     /* vertical-align: middle; */
     color: black;
     
@@ -352,11 +329,12 @@ figure{
 
     box-shadow: 3px 3px black;
 
-    padding: 3rem;
-    margin-bottom: 4rem;
+    /* padding: 3rem 1rem 3rem 0; */
+    
+    margin-bottom: 2rem;
 
-    display:flex;/*CSS3*/
-    align-items:center;/*Vertical align*/
+    display: flex;/*CSS3*/
+    align-items: center;/*Vertical align*/
     justify-content:center;/*horizontal align*/
 }
 
@@ -375,16 +353,12 @@ figure{
 /* FOOTER */
 
 footer{
-    /* margin-top: 3rem; */
+    margin-bottom: 3rem;
     /* padding: 2rem 2rem; */
 
     font-family: 'SpaceGroteskRegular', serif;
-    font-size: 1.5rem;
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    font-size: 1.25rem;
+    text-align: right;
 }
 
 /* MEDIA QUERIES */
@@ -399,20 +373,19 @@ footer{
 
     .nav_buttons{
         margin: 0;
-        padding: 0;
+        padding: 1;
     }
 
     .nav_buttons > li{
         margin-bottom: 1rem;
     }
 
-    .navigation{
-
+    .nav_buttons > li > a{
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
     }
-}
 
-@media(max-width: 800px){
-    .logo_hyperlink_container{
-        margin: 0 0 1rem 1rem;
+    .see_all_projects, .see_all_blog{
+        padding: 2rem;
     }
 }
